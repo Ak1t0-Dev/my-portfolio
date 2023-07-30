@@ -10,12 +10,12 @@ export const Home = () => {
       <div>
         <img src={myImage} alt="my-profile" />
       </div>
-      <div>
-        <h1>AKITO TOBITA</h1>
-        <p>
+      <StyledIntroduce>
+        <StyledTitle>AKITO TOBITA</StyledTitle>
+        <StyledParagraph>
           I'm a Fullstack Developer at heart and create features that are best
           suited for the job at hand.
-        </p>
+        </StyledParagraph>
         <StyledList>
           <li>
             <LinkedInIcon />
@@ -27,7 +27,7 @@ export const Home = () => {
             <TwitterIcon />
           </li>
         </StyledList>
-      </div>
+      </StyledIntroduce>
     </StyledMain>
   );
 };
@@ -38,6 +38,20 @@ const StyledMain = styled("div")({
   justifyContent: "center",
   alignItems: "center",
   gap: "2rem",
+});
+
+const StyledIntroduce = styled("div")({
+  maxWidth: "480px",
+});
+
+const StyledTitle = styled("h1")({
+  letterSpacing: "0.5rem",
+  fontSize: "3.2rem",
+  margin: "1rem 0",
+});
+
+const StyledParagraph = styled("p")({
+  fontSize: "1.2rem",
 });
 
 const StyledList = styled("ul")({
