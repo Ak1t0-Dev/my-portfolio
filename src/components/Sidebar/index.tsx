@@ -9,8 +9,15 @@ import {
   ListItemText,
 } from "@mui/material";
 import { sidebarItems } from "../../constants/sidebarItems";
+import { useNavigate } from "react-router-dom";
 
 export const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (url: string) => {
+    navigate(url);
+  };
+
   return (
     <Box sx={{ width: "80%", bgcolor: "background.paper" }}>
       <Divider />
@@ -18,7 +25,7 @@ export const Sidebar = () => {
         <List>
           {sidebarItems.map((item) => (
             <ListItem disablePadding key={item.name}>
-              <ListItemButton>
+              <ListItemButton onClick={() => handleClick(item.url)}>
                 <ListItemIcon></ListItemIcon>
                 <ListItemText primary={item.name} />
               </ListItemButton>
