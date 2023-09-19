@@ -5,3 +5,8 @@ export const sidebarItems = [
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
 ];
+
+export const logo = {
+  title: "ISM.",
+  slogan: "live your life",
+};

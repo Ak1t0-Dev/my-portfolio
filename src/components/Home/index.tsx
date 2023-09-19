@@ -73,7 +73,6 @@ const StyledMain = styled("div")({
   justifyContent: "center",
   alignItems: "center",
   gap: "2rem",
-  // height: "calc(100vh-8rem)",
   height: "calc(100vh - 8rem)",
 });
 
