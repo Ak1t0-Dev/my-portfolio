@@ -24,6 +24,10 @@ export const Sidebar = () => {
     setIsMenuOpened(true);
   };
 
+  const handleHomeClick = () => {
+    navigate(sidebarItems[0].url);
+  };
+
   const handleMenuToggle = () => {
     setIsMenuOpened(!isMenuOpened);
   };
@@ -69,6 +73,7 @@ export const Sidebar = () => {
           top: { md: "20px" },
           left: { md: "30px" },
         }}
+        onClick={handleHomeClick}
       >
         <StyledTitle>{logo.title}</StyledTitle>
         <StyledSlogan>{logo.slogan}</StyledSlogan>

@@ -10,3 +10,7 @@ export const theme = createTheme({
 export const StyledTitle = styled("h1")({
   fontSize: "2.5rem",
 });
+
+export const StyledSubTitle = styled("h2")({
+  fontSize: "2rem",
+});

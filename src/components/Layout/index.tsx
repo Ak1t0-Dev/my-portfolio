@@ -21,7 +21,7 @@ export const Layout = () => {
         item
         xs={12}
         md={9}
-        sx={{ padding: { xs: "1rem 2rem", sm: "2rem 4rem" } }}
+        sx={{ padding: { xs: "1rem 1.5rem", sm: "2rem 4rem" } }}
       >
         <motion.main
           key={location.pathname}

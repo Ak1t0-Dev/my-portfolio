@@ -9,12 +9,15 @@ import {
 import {
   aboutMe,
   aboutMeDetails,
+  career,
+  education,
   fullName,
   jobTitle,
   profile,
 } from "../../constants/aboutme";
-import { StyledTitle, theme } from "../style";
+import { StyledSubTitle, StyledTitle, theme } from "../style";
 import { changeFirstToUpperCase } from "../../uitls/letterUtils";
+import PushPinIcon from "@mui/icons-material/PushPin";
 import myImage from "../../assets/images/about_me.jpg";
 
 export const About = () => {
@@ -59,7 +62,65 @@ export const About = () => {
           </StyledGrid>
           <Divider />
         </section>
-        <section></section>
+        <section>
+          <StyledSubTitle sx={{ margin: { xs: "0.8rem 0", md: "1.2rem 0" } }}>
+            My Career
+          </StyledSubTitle>
+          {career.map((item) => (
+            <StyledJourney>
+              <StyledJourneyLine>
+                <StyledPushPinOutlinedIcon />
+                <StyledDivider></StyledDivider>
+              </StyledJourneyLine>
+              <StyledCareer>
+                <StyledRoundSpan>{item.duration}</StyledRoundSpan>
+                <StyledCareerDetail>
+                  <StyledItemTitle>
+                    <StyledBoxCompany>
+                      <span>{item.company}</span>
+                      {", "}
+                      <span>{item.location}</span>
+                    </StyledBoxCompany>
+                    <StyledPosition>{item.postion}</StyledPosition>
+                  </StyledItemTitle>
+                  <ul>
+                    {item.results.map((result) => (
+                      <li>
+                        <p>{result}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </StyledCareerDetail>
+              </StyledCareer>
+            </StyledJourney>
+          ))}
+        </section>
+        <section>
+          <StyledSubTitle sx={{ margin: { xs: "0.8rem 0", md: "1.2rem 0" } }}>
+            My Education
+          </StyledSubTitle>
+          {education.map((item) => (
+            <StyledJourney>
+              <StyledJourneyLine>
+                <StyledPushPinOutlinedIcon />
+                <StyledDivider></StyledDivider>
+              </StyledJourneyLine>
+              <StyledCareer>
+                <StyledRoundSpan>{item.duration}</StyledRoundSpan>
+                <StyledCareerDetail>
+                  <StyledItemTitle>
+                    <StyledBoxCompany>
+                      <span>{item.school}</span>
+                      {", "}
+                      <span>{item.location}</span>
+                    </StyledBoxCompany>
+                    <StyledPosition>{item.major}</StyledPosition>
+                  </StyledItemTitle>
+                </StyledCareerDetail>
+              </StyledCareer>
+            </StyledJourney>
+          ))}
+        </section>
       </StyledMain>
     </>
   );
@@ -87,10 +148,68 @@ const StyledProfile = styled(Box)({
   marginBottom: "1.5rem",
 });
 
+const StyledItemTitle = styled("h6")({
+  margin: "0.5rem 0",
+});
+
 const StyledName = styled("h2")({
   fontSize: "2rem",
   margin: "1rem 0 0 0",
   letterSpacing: ".1rem",
+});
+
+const StyledJourney = styled(Box)({
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "flex-start",
+});
+
+const StyledJourneyLine = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+});
+
+const StyledCareer = styled(Box)({
+  padding: "0.2rem 0.7rem",
+  minWidth: "300px",
+  width: "70%",
+});
+
+const StyledCareerDetail = styled(Box)({
+  padding: "0.2rem 1rem",
+  margin: "0.7rem 0",
+  backgroundColor: "white",
+  borderRadius: "0.5rem",
+  boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.5)",
+});
+
+const StyledBoxCompany = styled(Box)({
+  fontSize: "1rem",
+  marginBottom: "0.3rem",
+});
+
+const StyledPosition = styled("span")({
+  fontSize: "0.8rem",
+  color: "dimgray",
+});
+
+const StyledDivider = styled(Box)({
+  width: "2px",
+  flexGrow: "1",
+  backgroundColor: "black",
+  height: "5vh",
+});
+
+const StyledRoundSpan = styled("span")({
+  padding: "0.2rem 0.7rem",
+  borderBottom: "1px solid black",
+});
+
+const StyledPushPinOutlinedIcon = styled(PushPinIcon)({
+  border: "2px solid black",
+  padding: "0.2rem",
+  fontSize: "1rem",
 });
 
 const StyledJobTitle = styled("span")({
