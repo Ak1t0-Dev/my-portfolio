@@ -9,8 +9,17 @@ export const theme = createTheme({
 
 export const StyledTitle = styled("h1")({
   fontSize: "2.5rem",
+  fontFamily: "Titillium Web",
+  letterSpacing: ".3rem",
 });
 
 export const StyledSubTitle = styled("h2")({
   fontSize: "2rem",
+  fontFamily: "Titillium Web",
+  letterSpacing: ".2rem",
+});
+
+export const StyledTitleSm = styled("h3")({
+  fontFamily: "Titillium Web",
+  letterSpacing: ".1rem",
 });

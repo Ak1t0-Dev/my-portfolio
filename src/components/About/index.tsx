@@ -10,17 +10,51 @@ import {
   aboutMe,
   aboutMeDetails,
   career,
+  developing,
   education,
+  experienced,
   fullName,
   jobTitle,
   profile,
 } from "../../constants/aboutme";
-import { StyledSubTitle, StyledTitle, theme } from "../style";
+import { StyledSubTitle, StyledTitle, StyledTitleSm, theme } from "../style";
 import { changeFirstToUpperCase } from "../../uitls/letterUtils";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import myImage from "../../assets/images/about_me.jpg";
+import { motion, Variants } from "framer-motion";
 
 export const About = () => {
+  const cardVariants: Variants = {
+    offscreen: {
+      y: 5,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 1,
+      },
+    },
+  };
+
+  const careerVariants: Variants = {
+    offscreen: {
+      y: 100,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.2,
+        duration: 1,
+      },
+    },
+  };
+
   return (
     <>
       <StyledMain>
@@ -64,6 +98,58 @@ export const About = () => {
         </section>
         <section>
           <StyledSubTitle sx={{ margin: { xs: "0.8rem 0", md: "1.2rem 0" } }}>
+            Skills
+          </StyledSubTitle>
+          <StyledSkillsWrapper
+            sx={{ flexDirection: { xs: "column", sm: "row" } }}
+          >
+            <StyledSkillsBox sx={{ width: { xs: "100%", sm: "40%" } }}>
+              <StyledTitleSm>Experienced</StyledTitleSm>
+
+              <StyledSkillsUl>
+                {experienced.map((item, index) => (
+                  <motion.div
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: false, amount: 0.8 }}
+                  >
+                    <motion.div className="card" variants={cardVariants}>
+                      <StyledSkillsLi
+                        sx={{ maxWidth: { xs: "100%", sm: "300px" } }}
+                        key={index}
+                      >
+                        {item}
+                      </StyledSkillsLi>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </StyledSkillsUl>
+            </StyledSkillsBox>
+            <StyledSkillsBox sx={{ width: { xs: "100%", sm: "40%" } }}>
+              <StyledTitleSm>Developing</StyledTitleSm>
+              <StyledSkillsUl>
+                {developing.map((item, index) => (
+                  <motion.div
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: false, amount: 0.8 }}
+                  >
+                    <motion.div className="card" variants={cardVariants}>
+                      <StyledSkillsLi
+                        sx={{ maxWidth: { xs: "100%", sm: "300px" } }}
+                        key={index}
+                      >
+                        {item}
+                      </StyledSkillsLi>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </StyledSkillsUl>
+            </StyledSkillsBox>
+          </StyledSkillsWrapper>
+        </section>
+        <section>
+          <StyledSubTitle sx={{ margin: { xs: "0.8rem 0", md: "1.2rem 0" } }}>
             My Career
           </StyledSubTitle>
           {career.map((item) => (
@@ -72,26 +158,34 @@ export const About = () => {
                 <StyledPushPinOutlinedIcon />
                 <StyledDivider></StyledDivider>
               </StyledJourneyLine>
-              <StyledCareer>
-                <StyledRoundSpan>{item.duration}</StyledRoundSpan>
-                <StyledCareerDetail>
-                  <StyledItemTitle>
-                    <StyledBoxCompany>
-                      <span>{item.company}</span>
-                      {", "}
-                      <span>{item.location}</span>
-                    </StyledBoxCompany>
-                    <StyledPosition>{item.postion}</StyledPosition>
-                  </StyledItemTitle>
-                  <ul>
-                    {item.results.map((result) => (
-                      <li>
-                        <p>{result}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </StyledCareerDetail>
-              </StyledCareer>
+              <motion.div
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+              >
+                <motion.div variants={careerVariants}>
+                  <StyledCareer>
+                    <StyledRoundSpan>{item.duration}</StyledRoundSpan>
+                    <StyledCareerDetail>
+                      <StyledItemTitle>
+                        <StyledBoxCompany>
+                          <span>{item.company}</span>
+                          {", "}
+                          <span>{item.location}</span>
+                        </StyledBoxCompany>
+                        <StyledPosition>{item.postion}</StyledPosition>
+                      </StyledItemTitle>
+                      <ul>
+                        {item.results.map((result) => (
+                          <li>
+                            <p>{result}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </StyledCareerDetail>
+                  </StyledCareer>
+                </motion.div>
+              </motion.div>
             </StyledJourney>
           ))}
         </section>
@@ -99,8 +193,8 @@ export const About = () => {
           <StyledSubTitle sx={{ margin: { xs: "0.8rem 0", md: "1.2rem 0" } }}>
             My Education
           </StyledSubTitle>
-          {education.map((item) => (
-            <StyledJourney>
+          {education.map((item, index) => (
+            <StyledJourney key={index}>
               <StyledJourneyLine>
                 <StyledPushPinOutlinedIcon />
                 <StyledDivider></StyledDivider>
@@ -142,6 +236,33 @@ const StyledButtonWrapper = styled(Box)({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
+});
+
+const StyledSkillsWrapper = styled(Box)({
+  display: "flex",
+  justifyContent: "flex-start",
+  flexWrap: "wrap",
+  width: "100%",
+});
+
+const StyledSkillsBox = styled(Box)({
+  width: "40%",
+});
+
+const StyledSkillsUl = styled("ul")({
+  listStyle: "none",
+  row: 10,
+  paddingLeft: "1rem",
+});
+
+const StyledSkillsLi = styled("li")({
+  padding: "0.4rem 1rem",
+  border: "1.5px solid black",
+  textAlign: "center",
+  fontSize: "0.8rem",
+  marginBottom: "0.7rem",
+  boxShadow: "5px 5px gray",
+  minWidth: "150px",
 });
 
 const StyledProfile = styled(Box)({
@@ -210,6 +331,7 @@ const StyledPushPinOutlinedIcon = styled(PushPinIcon)({
   border: "2px solid black",
   padding: "0.2rem",
   fontSize: "1rem",
+  backgroundColor: "white",
 });
 
 const StyledJobTitle = styled("span")({

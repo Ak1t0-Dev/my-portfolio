@@ -2,7 +2,6 @@ import { Sidebar } from "../Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import { Grid, styled } from "@mui/material";
 import { easeOut, motion } from "framer-motion";
-// import { useEffect, useRef, useState } from "react";
 
 export const Layout = () => {
   const location = useLocation();
