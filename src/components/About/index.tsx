@@ -16,6 +16,7 @@ import {
   fullName,
   jobTitle,
   profile,
+  resumeUrl,
 } from "../../constants/aboutme";
 import { StyledSubTitle, StyledTitle, StyledTitleSm, theme } from "../style";
 import { changeFirstToUpperCase } from "../../uitls/letterUtils";
@@ -55,6 +56,10 @@ export const About = () => {
     },
   };
 
+  const handleClick = () => {
+    window.open(resumeUrl, "_blank");
+  };
+
   return (
     <>
       <StyledMain>
@@ -70,8 +75,12 @@ export const About = () => {
             </StyledProfile>
             <StyledButtonWrapper>
               <ThemeProvider theme={theme}>
-                <Button variant="contained" color={"primary"}>
-                  Download CV
+                <Button
+                  variant="contained"
+                  color={"primary"}
+                  onClick={handleClick}
+                >
+                  View Resume
                 </Button>
               </ThemeProvider>
             </StyledButtonWrapper>
@@ -113,7 +122,7 @@ export const About = () => {
                     whileInView="onscreen"
                     viewport={{ once: false, amount: 0.8 }}
                   >
-                    <motion.div className="card" variants={cardVariants}>
+                    <motion.div variants={cardVariants}>
                       <StyledSkillsLi
                         sx={{ maxWidth: { xs: "100%", sm: "300px" } }}
                         key={index}
@@ -152,8 +161,8 @@ export const About = () => {
           <StyledSubTitle sx={{ margin: { xs: "0.8rem 0", md: "1.2rem 0" } }}>
             My Career
           </StyledSubTitle>
-          {career.map((item) => (
-            <StyledJourney>
+          {career.map((item, index) => (
+            <StyledJourney key={index}>
               <StyledJourneyLine>
                 <StyledPushPinOutlinedIcon />
                 <StyledDivider></StyledDivider>
@@ -162,6 +171,7 @@ export const About = () => {
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.8 }}
+                style={{ width: "100%" }}
               >
                 <motion.div variants={careerVariants}>
                   <StyledCareer>
@@ -199,19 +209,28 @@ export const About = () => {
                 <StyledPushPinOutlinedIcon />
                 <StyledDivider></StyledDivider>
               </StyledJourneyLine>
-              <StyledCareer>
-                <StyledRoundSpan>{item.duration}</StyledRoundSpan>
-                <StyledCareerDetail>
-                  <StyledItemTitle>
-                    <StyledBoxCompany>
-                      <span>{item.school}</span>
-                      {", "}
-                      <span>{item.location}</span>
-                    </StyledBoxCompany>
-                    <StyledPosition>{item.major}</StyledPosition>
-                  </StyledItemTitle>
-                </StyledCareerDetail>
-              </StyledCareer>
+              <motion.div
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+                style={{ width: "100%" }}
+              >
+                <motion.div variants={careerVariants}>
+                  <StyledCareer>
+                    <StyledRoundSpan>{item.duration}</StyledRoundSpan>
+                    <StyledCareerDetail>
+                      <StyledItemTitle>
+                        <StyledBoxCompany>
+                          <span>{item.school}</span>
+                          {", "}
+                          <span>{item.location}</span>
+                        </StyledBoxCompany>
+                        <StyledPosition>{item.major}</StyledPosition>
+                      </StyledItemTitle>
+                    </StyledCareerDetail>
+                  </StyledCareer>
+                </motion.div>
+              </motion.div>
             </StyledJourney>
           ))}
         </section>
@@ -292,17 +311,19 @@ const StyledJourneyLine = styled(Box)({
 });
 
 const StyledCareer = styled(Box)({
-  padding: "0.2rem 0.7rem",
+  margin: "0.2rem 0.7rem",
   minWidth: "300px",
   width: "70%",
 });
 
 const StyledCareerDetail = styled(Box)({
+  boxSizing: "border-box",
   padding: "0.2rem 1rem",
   margin: "0.7rem 0",
   backgroundColor: "white",
   borderRadius: "0.5rem",
   boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.5)",
+  width: "100%",
 });
 
 const StyledBoxCompany = styled(Box)({

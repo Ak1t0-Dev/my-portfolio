@@ -105,3 +105,6 @@ export const developing = [
   "Prisma",
   "Figma",
 ];
+
+export const resumeUrl =
+  "https://drive.google.com/file/d/1h1Jxm26BTdaFNaLBBM5sk8Ob2_KXt1Vu/view?usp=drive_link";
