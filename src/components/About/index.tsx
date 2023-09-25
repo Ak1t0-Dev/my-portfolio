@@ -74,17 +74,23 @@ export const About = () => {
               backgroundPosition: { xs: "none", lg: "center" },
             }}
           />
-          <StyledProfileWrapper>
-            <StyledProfile>
+          <StyledProfileWrapper
+            sx={{
+              flexDirection: { xs: "column", sm: "row" },
+              justifyContent: "space-between",
+            }}
+          >
+            <Box>
               <StyledName>{fullName}</StyledName>
               <StyledJobTitle>{jobTitle}</StyledJobTitle>
-            </StyledProfile>
+            </Box>
             <StyledButtonWrapper>
               <ThemeProvider theme={theme}>
                 <Button
                   variant="contained"
                   color={"primary"}
                   onClick={handleClick}
+                  sx={{ width: "150px" }}
                 >
                   View Resume
                 </Button>
@@ -252,8 +258,8 @@ const StyledMain = styled(Box)({
 
 const StyledProfileWrapper = styled(Box)({
   display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-between",
+  gap: "1rem",
+  marginBottom: "1.5rem",
 });
 
 const StyledButtonWrapper = styled(Box)({
@@ -290,17 +296,13 @@ const StyledSkillsLi = styled("li")({
   backgroundColor: "white",
 });
 
-const StyledProfile = styled(Box)({
-  marginBottom: "1.5rem",
-});
-
 const StyledItemTitle = styled("h6")({
   margin: "0.5rem 0",
 });
 
 const StyledName = styled("h2")({
   fontSize: "2rem",
-  margin: "1rem 0 0 0",
+  margin: "0",
   letterSpacing: ".1rem",
 });
 
