@@ -2,37 +2,41 @@ import { Sidebar } from "../Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import { Grid, styled } from "@mui/material";
 import { easeOut, motion } from "framer-motion";
+import { Particle } from "../Particle/Particle";
 
 export const Layout = () => {
   const location = useLocation();
 
   return (
-    <StyledGridContainer container>
-      <StyledGridSide
-        item
-        xs={12}
-        md={3}
-        sx={{ height: { xs: "10vh", md: "auto" }, minHeight: "80px" }}
-      >
-        <Sidebar />
-      </StyledGridSide>
-      <StyledGridMain
-        item
-        xs={12}
-        md={9}
-        sx={{ padding: { xs: "1rem 1.5rem", sm: "2rem 4rem" } }}
-      >
-        <motion.main
-          key={location.pathname}
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, easeOut }}
-          exit={{ opacity: 0 }}
+    <>
+      <Particle />
+      <StyledGridContainer container>
+        <StyledGridSide
+          item
+          xs={12}
+          md={3}
+          sx={{ height: { xs: "10vh", md: "auto" }, minHeight: "80px" }}
         >
-          <Outlet />
-        </motion.main>
-      </StyledGridMain>
-    </StyledGridContainer>
+          <Sidebar />
+        </StyledGridSide>
+        <StyledGridMain
+          item
+          xs={12}
+          md={9}
+          sx={{ padding: { xs: "1rem 1.5rem", sm: "2rem 4rem" } }}
+        >
+          <motion.main
+            key={location.pathname}
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, easeOut }}
+            exit={{ opacity: 0 }}
+          >
+            <Outlet />
+          </motion.main>
+        </StyledGridMain>
+      </StyledGridContainer>
+    </>
   );
 };
 
@@ -49,7 +53,6 @@ const StyledGridSide = styled(Grid)({
   position: "sticky",
 });
 const StyledGridMain = styled(Grid)({
-  backgroundColor: "#f8f8f8",
   overflowY: "auto",
   height: "100vh",
 });

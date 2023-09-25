@@ -7,7 +7,6 @@ import {
   styled,
 } from "@mui/material";
 import {
-  aboutMe,
   aboutMeDetails,
   career,
   developing,
@@ -23,6 +22,7 @@ import { changeFirstToUpperCase } from "../../uitls/letterUtils";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import myImage from "../../assets/images/about_me.jpg";
 import { motion, Variants } from "framer-motion";
+import "../style.css";
 
 export const About = () => {
   const cardVariants: Variants = {
@@ -86,9 +86,8 @@ export const About = () => {
             </StyledButtonWrapper>
           </StyledProfileWrapper>
           <Divider />
-          <StyledTypo>
-            <p>{aboutMe}</p>
-            <p>{aboutMeDetails}</p>
+          <StyledTypo sx={{ backgroundColor: "white" }}>
+            {aboutMeDetails}
           </StyledTypo>
           <Divider />
           <StyledGrid container spacing={3}>
@@ -282,6 +281,7 @@ const StyledSkillsLi = styled("li")({
   marginBottom: "0.7rem",
   boxShadow: "5px 5px gray",
   minWidth: "150px",
+  backgroundColor: "white",
 });
 
 const StyledProfile = styled(Box)({
@@ -383,4 +383,5 @@ const StyledGridItem = styled(Grid)({
 
 const StyledGrid = styled(Grid)({
   padding: "2rem",
+  backgroundColor: "white",
 });

@@ -1,12 +1,11 @@
 export const fullName = "Akito Tobita";
 export const jobTitle = "Full-stack Developer";
-export const aboutMe =
-  "I'm a Fullstack Developer at heart and create features that are best suited for the job at hand.";
-export const aboutMeDetails =
-  "Dedicated and driven software engineer with 6 years experience in full-stack development. Focused problem solver and seeking to apply proven software development skills in a small team environment to create excellent software solutions.";
+export const message =
+  "All about taking a step, diving headfirst into challenges, and staying open to learning and growth, even when it means taking some risks.";
+export const aboutMeDetails = `Hi there! Thanks for your visit\u{1F601} I am a dedicated and driven software engineer with 6 years experience in full-stack development. Focused problem solver and seeking to apply proven software development skills in a small team environment to create excellent software solutions.`;
 
 export const profile = {
-  location: "Vancouver",
+  location: "Vancouver, BC",
   email: "t0bitakito.001@gmail.com",
   phone: "778-919-0549",
   interest: "play badminton, watch Netflix",
@@ -59,7 +58,10 @@ export const career = [
     company: "Kawasaki City Hall",
     location: "Japan",
     results: [
+      "Created queries using MySQL to determine if parents can leave their children in a licensed daycare",
       "Maintained a web-based application for a daycare support system using windows batch, Oracle, JavaScript, HTML and CSS",
+      "Managed access rights to folders due to organizational changes and personnel changes using the Active Directory child care support system",
+      "Created a batch coding solution with VBA that automatically generates SQL queries based on input from an Excel spreadsheet",
     ],
   },
   {
@@ -68,6 +70,9 @@ export const career = [
     company: "Japan Post",
     location: "Japan",
     results: [
+      "Restored Windows desktops to the company's default settings and prepared them for reuse, ensuring adherence to company standards",
+      "Served as a reliable resource for colleagues, offering technical support and guidance for various software-related inquiries",
+      "Applied software and firmware patches to the track system, addressing security vulnerabilities and enhancing system performance",
       "Maintained a web-based application for a post tracking system for using MySQL, JavaScript, HTML and CSS",
     ],
   },
@@ -83,7 +88,6 @@ export const experienced = [
   "MySQL",
   "PostgreSQL",
   "Oracle",
-  "MongoDB",
   "AWS",
   "Docker",
   "Git",
@@ -100,7 +104,9 @@ export const developing = [
   "Tailwinds",
   "MUI",
   "Junit",
+  "Cypress",
   "Supabase",
+  "MongoDB",
   "Auth0",
   "Prisma",
   "Figma",

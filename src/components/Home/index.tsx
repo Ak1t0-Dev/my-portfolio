@@ -1,9 +1,10 @@
 import { Box, keyframes, styled } from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import { BiLogoGithub } from "react-icons/bi";
 import myImage from "../../assets/images/profile.jpeg";
-import { aboutMe, fullName } from "../../constants/aboutme";
+import { fullName, jobTitle, message } from "../../constants/aboutme";
+import "../style.css";
 
 export const Home = () => {
   return (
@@ -23,16 +24,17 @@ export const Home = () => {
             <StyledSpinBlockSmall></StyledSpinBlockSmall>
           </Box>
         </Box>
-        <StyledParagraph>{aboutMe}</StyledParagraph>
+        <StyledJobTitle>{jobTitle}</StyledJobTitle>
+        <StyledParagraph>{message}</StyledParagraph>
         <StyledList>
           <li>
-            <LinkedInIcon />
+            <LinkedInIcon className="icon" />
           </li>
           <li>
-            <FacebookIcon />
+            <EmailOutlinedIcon className="icon" />
           </li>
           <li>
-            <TwitterIcon />
+            <BiLogoGithub className="icon" />
           </li>
         </StyledList>
       </StyledIntroduce>
@@ -82,13 +84,21 @@ const StyledIntroduce = styled("div")({
 
 const StyledTitle = styled("h1")({
   letterSpacing: "0.6rem",
-  fontSize: "3.2rem",
-  margin: "1rem 0",
+  fontSize: "3.1rem",
+  margin: "0",
   color: "#181818",
 });
 
-const StyledParagraph = styled("p")({
+const StyledJobTitle = styled("span")({
   fontSize: "1.2rem",
+  color: "#181818",
+  letterSpacing: ".3rem",
+});
+
+const StyledParagraph = styled("p")({
+  fontFamily: "Titillium Web",
+  fontSize: "1.2rem",
+  margin: "1rem 0",
 });
 
 const StyledList = styled("ul")({
@@ -101,7 +111,7 @@ const StyledList = styled("ul")({
 });
 
 const StyledSpinBlock = styled("div")({
-  width: "32px",
+  width: "30px",
   aspectRatio: "1 / 1",
   border: "4px solid transparent",
   borderRadius: "50%",
@@ -109,7 +119,7 @@ const StyledSpinBlock = styled("div")({
 });
 
 const StyledSpinBlockSmall = styled("div")({
-  width: "28px",
+  width: "26px",
   aspectRatio: "1 / 1",
   border: "4px solid transparent",
   borderRadius: "50%",
@@ -117,7 +127,7 @@ const StyledSpinBlockSmall = styled("div")({
 });
 
 const StyledImg = styled("div")({
-  minWidth: "200px",
+  minWidth: "220px",
   aspectRatio: "1 / 1",
   borderRadius: "50%",
   backgroundSize: "contain",
