@@ -3,6 +3,10 @@ export const jobTitle = "Full-stack Developer";
 export const message =
   "All about taking a step, diving headfirst into challenges, and staying open to learning and growth, even when it means taking some risks.";
 export const aboutMeDetails = `Hi there! Thanks for your visit\u{1F601} I am a dedicated and driven software engineer with 6 years experience in full-stack development. Focused problem solver and seeking to apply proven software development skills in a small team environment to create excellent software solutions.`;
+export const linkedInUrl =
+  "https://www.linkedin.com/in/akito-tobita-910878247/";
+export const gitHubUrl = "https://github.com/Ak1t0-Dev";
+export const email = "mailto:akit0bita.001@gmail.com";
 
 export const profile = {
   location: "Vancouver, BC",

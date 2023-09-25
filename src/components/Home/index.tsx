@@ -1,9 +1,14 @@
 import { Box, keyframes, styled } from "@mui/material";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import { BiLogoGithub } from "react-icons/bi";
+import { AiFillLinkedin, AiOutlineMail, AiFillGithub } from "react-icons/ai";
 import myImage from "../../assets/images/profile.jpeg";
-import { fullName, jobTitle, message } from "../../constants/aboutme";
+import {
+  email,
+  fullName,
+  gitHubUrl,
+  jobTitle,
+  linkedInUrl,
+  message,
+} from "../../constants/aboutme";
 import "../style.css";
 
 export const Home = () => {
@@ -28,13 +33,19 @@ export const Home = () => {
         <StyledParagraph>{message}</StyledParagraph>
         <StyledList>
           <li>
-            <LinkedInIcon className="icon" />
+            <StyledAnchor href={linkedInUrl} target="_blank" rel="noreferrer">
+              <AiFillLinkedin className="icon" />
+            </StyledAnchor>
           </li>
           <li>
-            <EmailOutlinedIcon className="icon" />
+            <StyledAnchor href={email}>
+              <AiOutlineMail className="icon" />
+            </StyledAnchor>
           </li>
           <li>
-            <BiLogoGithub className="icon" />
+            <StyledAnchor href={gitHubUrl} target="_blank" rel="noreferrer">
+              <AiFillGithub className="icon" />
+            </StyledAnchor>
           </li>
         </StyledList>
       </StyledIntroduce>
@@ -134,4 +145,13 @@ const StyledImg = styled("div")({
   backgroundRepeat: "no-repeat",
   backgroundImage: `url(${myImage})`,
   outline: "3px solid black",
+});
+
+const StyledAnchor = styled("a")({
+  textDecoration: "none",
+  color: "black",
+  transition: "0.5s",
+  "&:hover": {
+    color: "#4169E1",
+  },
 });
