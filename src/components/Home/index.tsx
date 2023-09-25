@@ -13,7 +13,15 @@ import "../style.css";
 
 export const Home = () => {
   return (
-    <StyledMain>
+    <StyledMain
+      sx={{
+        flexDirection: { xs: "column", sm: "row" },
+        justifyContent: "center",
+        alignItems: "center",
+        height: { xs: "calc(100vh - 5rem)", sm: "calc(100vh - 10rem)" },
+        gap: { xs: "1rem", sm: "2rem" },
+      }}
+    >
       <StyledImg></StyledImg>
       <StyledIntroduce>
         <Box sx={{ display: "flex" }}>
@@ -82,11 +90,6 @@ const gradient = keyframes`
 
 const StyledMain = styled("div")({
   display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: "2rem",
-  height: "calc(100vh - 8rem)",
 });
 
 const StyledIntroduce = styled("div")({

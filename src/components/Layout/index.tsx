@@ -10,12 +10,22 @@ export const Layout = () => {
   return (
     <>
       <Particle />
-      <StyledGridContainer container>
+      <StyledGridContainer
+        container
+        sx={{
+          height: { xs: "none", md: "100vh" },
+        }}
+      >
         <StyledGridSide
           item
           xs={12}
           md={3}
-          sx={{ height: { xs: "10vh", md: "auto" }, minHeight: "80px" }}
+          sx={{
+            height: { xs: "10vh", md: "auto" },
+            minHeight: "80px",
+            position: { xs: "sticky", md: "none" },
+            top: { xs: 0, md: "none" },
+          }}
         >
           <Sidebar />
         </StyledGridSide>
@@ -23,7 +33,10 @@ export const Layout = () => {
           item
           xs={12}
           md={9}
-          sx={{ padding: { xs: "1rem 1.5rem", sm: "2rem 4rem" } }}
+          sx={{
+            padding: { xs: "0rem 1.5rem", sm: "2rem 4rem" },
+            height: { xs: "none", md: "100vh" },
+          }}
         >
           <motion.main
             key={location.pathname}
@@ -40,9 +53,7 @@ export const Layout = () => {
   );
 };
 
-const StyledGridContainer = styled(Grid)({
-  height: "100vh",
-});
+const StyledGridContainer = styled(Grid)({});
 
 const StyledGridSide = styled(Grid)({
   backgroundColor: "white",
@@ -54,5 +65,4 @@ const StyledGridSide = styled(Grid)({
 });
 const StyledGridMain = styled(Grid)({
   overflowY: "auto",
-  height: "100vh",
 });

@@ -67,7 +67,13 @@ export const About = () => {
           About Me
         </StyledTitle>
         <section>
-          <StyledImg></StyledImg>
+          <StyledImg
+            sx={{
+              backgroundPositionX: { xs: "20%", lg: "none" },
+              backgroundPositionY: { xs: "40%", lg: "none" },
+              backgroundPosition: { xs: "none", lg: "center" },
+            }}
+          />
           <StyledProfileWrapper>
             <StyledProfile>
               <StyledName>{fullName}</StyledName>
@@ -120,11 +126,11 @@ export const About = () => {
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: false, amount: 0.8 }}
+                    key={index}
                   >
                     <motion.div variants={cardVariants}>
                       <StyledSkillsLi
                         sx={{ maxWidth: { xs: "100%", sm: "300px" } }}
-                        key={index}
                       >
                         {item}
                       </StyledSkillsLi>
@@ -141,11 +147,11 @@ export const About = () => {
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: false, amount: 0.8 }}
+                    key={index}
                   >
                     <motion.div className="card" variants={cardVariants}>
                       <StyledSkillsLi
                         sx={{ maxWidth: { xs: "100%", sm: "300px" } }}
-                        key={index}
                       >
                         {item}
                       </StyledSkillsLi>
@@ -185,8 +191,8 @@ export const About = () => {
                         <StyledPosition>{item.postion}</StyledPosition>
                       </StyledItemTitle>
                       <ul>
-                        {item.results.map((result) => (
-                          <li>
+                        {item.results.map((result, index) => (
+                          <li key={index}>
                             <p>{result}</p>
                           </li>
                         ))}
@@ -372,9 +378,8 @@ const StyledImg = styled(Box)({
   width: "100%",
   aspectRatio: "16 / 9",
   backgroundImage: `url(${myImage})`,
-  backgroundPositionX: "20%",
-  backgroundPositionY: "40%",
   margin: "2rem 0",
+  backgroundRepeat: "no-repeat",
 });
 
 const StyledGridItem = styled(Grid)({
