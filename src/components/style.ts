@@ -1,4 +1,4 @@
-import { createTheme, styled } from "@mui/material";
+import { Box, createTheme, styled } from "@mui/material";
 import { grey } from "@mui/material/colors";
 
 export const theme = createTheme({
@@ -22,4 +22,10 @@ export const StyledSubTitle = styled("h2")({
 export const StyledTitleSm = styled("h3")({
   fontFamily: "Titillium Web",
   letterSpacing: ".1rem",
+});
+
+export const StyledMain = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  alignContent: "center",
 });
