@@ -1,6 +1,6 @@
 export const sidebarItems = [
   { name: "Home", url: "/" },
-  { name: "About", url: "/about" },
+  { name: "About Me", url: "/aboutme" },
   { name: "Portfolio", url: "/portfolio" },
   { name: "Blog", url: "/blog" },
 ];

@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Divider,
-  Grid,
-  ThemeProvider,
-  styled,
-} from "@mui/material";
+import { Box, Button, Divider, ThemeProvider, styled } from "@mui/material";
 import {
   aboutMeDetails,
   career,
@@ -24,7 +17,7 @@ import myImage from "../../assets/images/about_me.jpg";
 import { motion, Variants } from "framer-motion";
 import "../style.css";
 
-export const About = () => {
+export const AboutMe = () => {
   const cardVariants: Variants = {
     offscreen: {
       y: 5,
@@ -35,7 +28,7 @@ export const About = () => {
       opacity: 1,
       transition: {
         type: "spring",
-        duration: 1,
+        duration: 2,
       },
     },
   };
@@ -97,24 +90,36 @@ export const About = () => {
               </ThemeProvider>
             </StyledButtonWrapper>
           </StyledProfileWrapper>
-          <Divider />
-          <StyledTypo sx={{ backgroundColor: "white" }}>
-            {aboutMeDetails}
-          </StyledTypo>
-          <Divider />
-          <StyledGrid container spacing={3}>
-            {Object.entries(profile).map(([key, value]) => (
-              <StyledGridItem item xs={6} key={key}>
-                <div key={key}>
-                  <span>
-                    <strong>{changeFirstToUpperCase(key)}: </strong>
-                  </span>
-                  <span>{value}</span>
-                </div>
-              </StyledGridItem>
-            ))}
-          </StyledGrid>
-          <Divider />
+          <Box
+            sx={{
+              backgroundColor: "#FDFDFF",
+              padding: "1rem 2rem",
+              border: "1.5px solid rgb(100,149,237)",
+            }}
+          >
+            <StyledTypo>
+              {aboutMeDetails.map((item) => (
+                <span style={{ display: "block" }}>{item}</span>
+              ))}
+            </StyledTypo>
+            <Divider />
+            <StyledUl>
+              {Object.entries(profile).map(([key, value]) => (
+                <StyledList>
+                  <Box key={key} sx={{ display: "flex", flexWrap: "wrap" }}>
+                    <span style={{ marginRight: "0.8rem" }}>
+                      <strong>{changeFirstToUpperCase(key)}: </strong>
+                    </span>
+                    {typeof value === "string" ? (
+                      <StyledSpan>{value}</StyledSpan>
+                    ) : (
+                      value.map((item) => <StyledSpan>{item}</StyledSpan>)
+                    )}
+                  </Box>
+                </StyledList>
+              ))}
+            </StyledUl>
+          </Box>
         </section>
         <section>
           <StyledSubTitle sx={{ margin: { xs: "0.8rem 0", md: "1.2rem 0" } }}>
@@ -262,6 +267,47 @@ const StyledProfileWrapper = styled(Box)({
   marginBottom: "1.5rem",
 });
 
+const StyledJobTitle = styled("span")({
+  fontSize: "1rem",
+  color: "#181818",
+  letterSpacing: ".1rem",
+});
+
+const StyledTypo = styled(Box)({
+  fontSize: "1rem",
+  color: "#181818",
+  padding: "1rem",
+  fontFamily: "Titillium Web",
+});
+
+const StyledImg = styled(Box)({
+  minWidth: "300px",
+  width: "100%",
+  aspectRatio: "16 / 9",
+  backgroundImage: `url(${myImage})`,
+  margin: "2rem 0",
+  backgroundRepeat: "no-repeat",
+});
+
+const StyledUl = styled("ul")({
+  padding: "0 1rem",
+  listStyle: "none",
+});
+
+const StyledList = styled("li")({
+  fontSize: "1rem",
+  fontFamily: "Titillium Web",
+  marginBottom: "1rem",
+});
+
+const StyledSpan = styled("span")({
+  padding: "0.2rem 0.5rem",
+  border: "1.2px solid black",
+  borderRadius: "0.8rem",
+  margin: "0 0.5rem 0.5rem 0",
+  fontSize: "0.8rem",
+});
+
 const StyledButtonWrapper = styled(Box)({
   display: "flex",
   flexDirection: "column",
@@ -360,35 +406,5 @@ const StyledPushPinOutlinedIcon = styled(PushPinIcon)({
   border: "2px solid black",
   padding: "0.2rem",
   fontSize: "1rem",
-  backgroundColor: "white",
-});
-
-const StyledJobTitle = styled("span")({
-  fontSize: "1rem",
-  color: "#181818",
-  letterSpacing: ".1rem",
-});
-
-const StyledTypo = styled(Box)({
-  fontSize: "1rem",
-  color: "#181818",
-  padding: "1rem 2rem",
-});
-
-const StyledImg = styled(Box)({
-  minWidth: "300px",
-  width: "100%",
-  aspectRatio: "16 / 9",
-  backgroundImage: `url(${myImage})`,
-  margin: "2rem 0",
-  backgroundRepeat: "no-repeat",
-});
-
-const StyledGridItem = styled(Grid)({
-  fontSize: "1rem",
-});
-
-const StyledGrid = styled(Grid)({
-  padding: "2rem",
   backgroundColor: "white",
 });

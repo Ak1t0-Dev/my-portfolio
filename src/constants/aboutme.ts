@@ -2,19 +2,20 @@ export const fullName = "Akito Tobita";
 export const jobTitle = "Full-stack Developer";
 export const message =
   "All about taking a step, diving headfirst into challenges, and staying open to learning and growth, even when it means taking some risks.";
-export const aboutMeDetails = `Hi there! Thanks for your visit\u{1F601} I am a dedicated and driven software engineer with 6 years experience in full-stack development. Focused problem solver and seeking to apply proven software development skills in a small team environment to create excellent software solutions.`;
+export const aboutMeDetails = [
+  `Hey there! Thanks for your visit \u{1F601}`,
+  "I am a passionate and driven software developer with experience in full-stack development. In a previous role, I developed a SaaS car insurance website with dash cam functionality, enabling the retrieval and display of driver skills data for streamlined performance analysis. Currently, I am exploring and focusing on front-end development, particularly TypeScript and React.",
+  `Don't hesitate - let's jump into the world together! \u{1F680}`,
+];
 export const linkedInUrl =
   "https://www.linkedin.com/in/akito-tobita-910878247/";
 export const gitHubUrl = "https://github.com/Ak1t0-Dev";
 export const email = "mailto:akit0bita.001@gmail.com";
 
 export const profile = {
+  nationality: "Japanese",
   location: "Vancouver, BC",
-  email: "t0bitakito.001@gmail.com",
-  phone: "778-919-0549",
-  interest: "play badminton, watch Netflix",
-  study: "Web & Mobile Application Development, CICCC",
-  freelance: "Available",
+  likes: ["badminton", "video games", "bouldering", "movies", "anime"],
 };
 
 export const education = [
