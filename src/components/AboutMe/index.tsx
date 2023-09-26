@@ -104,22 +104,26 @@ export const AboutMe = () => {
             }}
           >
             <StyledTypo>
-              {aboutMeDetails.map((item) => (
-                <span style={{ display: "block" }}>{item}</span>
+              {aboutMeDetails.map((item, index) => (
+                <span key={index} style={{ display: "block" }}>
+                  {item}
+                </span>
               ))}
             </StyledTypo>
             <Divider />
             <StyledUl>
-              {Object.entries(profile).map(([key, value]) => (
-                <StyledList>
-                  <Box key={key} sx={{ display: "flex", flexWrap: "wrap" }}>
+              {Object.entries(profile).map(([key, value], index) => (
+                <StyledList key={index}>
+                  <Box sx={{ display: "flex", flexWrap: "wrap" }}>
                     <span style={{ marginRight: "0.8rem" }}>
                       <strong>{changeFirstToUpperCase(key)}: </strong>
                     </span>
                     {typeof value === "string" ? (
                       <StyledSpan>{value}</StyledSpan>
                     ) : (
-                      value.map((item) => <StyledSpan>{item}</StyledSpan>)
+                      value.map((item, index) => (
+                        <StyledSpan key={index}>{item}</StyledSpan>
+                      ))
                     )}
                   </Box>
                 </StyledList>
