@@ -85,7 +85,7 @@ export const Sidebar = () => {
       <Drawer
         variant="temporary"
         anchor={"right"}
-        open={!isMenuOpened}
+        open={isMenuOpened}
         onClose={handleMenuToggle}
         ModalProps={{
           keepMounted: true,
