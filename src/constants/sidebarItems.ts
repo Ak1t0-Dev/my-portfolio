@@ -1,8 +1,11 @@
 export const sidebarItems = [
-  { name: "Home" },
-  { name: "About" },
-  { name: "Service" },
-  { name: "Portfolio" },
-  { name: "News" },
-  { name: "Contact" },
+  { name: "Home", url: "/" },
+  { name: "About Me", url: "/aboutme" },
+  { name: "Portfolio", url: "/portfolio" },
+  { name: "Blog", url: "/blog" },
 ];
+
+export const logo = {
+  title: "ISM.",
+  slogan: "live your life",
+};
