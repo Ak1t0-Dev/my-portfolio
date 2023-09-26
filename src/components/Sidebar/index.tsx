@@ -13,6 +13,7 @@ import {
 import { logo, sidebarItems } from "../../constants/sidebarItems";
 import { useNavigate } from "react-router-dom";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 
 export const Sidebar = () => {
@@ -85,7 +86,7 @@ export const Sidebar = () => {
       <Drawer
         variant="temporary"
         anchor={"right"}
-        open={!isMenuOpened}
+        open={isMenuOpened}
         onClose={handleMenuToggle}
         ModalProps={{
           keepMounted: true,
@@ -100,6 +101,15 @@ export const Sidebar = () => {
           },
         }}
       >
+        <CloseIcon
+          onClick={handleMenuToggle}
+          sx={{
+            position: "absolute",
+            top: "20px",
+            right: "20px",
+            color: "#393e46",
+          }}
+        />
         {drawer}
       </Drawer>
       <Box sx={{ display: { xs: "none", md: "block" } }}>{drawer}</Box>

@@ -70,7 +70,7 @@ const StyledUrlWrapper = styled(Box)({
 });
 
 const StyledPortfolio = styled(Box)({
-  minWidth: "350px",
+  minWidth: "300px",
   backgroundColor: "#FDFDFF",
   border: "2px solid rgb(100,149,237)",
   padding: "1rem",
