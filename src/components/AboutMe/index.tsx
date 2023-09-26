@@ -10,7 +10,13 @@ import {
   profile,
   resumeUrl,
 } from "../../constants/aboutme";
-import { StyledSubTitle, StyledTitle, StyledTitleSm, theme } from "../style";
+import {
+  StyledMain,
+  StyledSubTitle,
+  StyledTitle,
+  StyledTitleSm,
+  theme,
+} from "../style";
 import { changeFirstToUpperCase } from "../../uitls/letterUtils";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import myImage from "../../assets/images/about_me.jpg";
@@ -254,12 +260,6 @@ export const AboutMe = () => {
     </>
   );
 };
-
-const StyledMain = styled(Box)({
-  display: "flex",
-  flexDirection: "column",
-  alignContent: "center",
-});
 
 const StyledProfileWrapper = styled(Box)({
   display: "flex",
