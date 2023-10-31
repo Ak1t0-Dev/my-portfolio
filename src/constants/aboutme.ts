@@ -40,9 +40,9 @@ export const career = [
     company: "NTT docomo",
     location: "Japan",
     results: [
-      "Developed functions in Java and Spring boot that retrieved data using REST API, enabling seamless integration with external systems and efficient data retrieval for various applications",
-      "Optimized certain queries using Query Optimization techniques, resulting in enhanced database performance and faster search results (up to 50% faster)",
-      "Implemented AWS services, including building Network Load Balancers (NLB) and EC2 instances, as part of the on-premises to cloud migration strategy, ensuring scalability and high availability of applications",
+      "Optimized queries using PostgreSQL's Query Optimization techniques, achieving up to a 50% improvement in database performance and faster search results",
+      "Implemented more than 20 functions in Java and Spring boot that retrieved data using REST API, enabling seamless integration with external systems and efficient data retrieval for various applications",
+      "Designed AWS infrastructure, including building Network Load Balancers (NLB) and EC2 instances, as part of the on-premises to cloud migration strategy, ensuring scalability and high availability of applications",
     ],
   },
   {
@@ -51,10 +51,10 @@ export const career = [
     company: "Mitsui Sumitomo Insurance",
     location: "Japan",
     results: [
-      "Responsible for creating prototypes for various websites associated with company's requirements using JavaScript, jQuery, HTML, and CSS",
-      "Implemented a function to retrieve and display evaluated data of drivers' skills, enabling easy access and analysis of driver performance using Java, Spring boot and PostgreSQL",
-      "Collaborated with team members to assist in unit testing, functional testing, and integration testing, ensuring the quality and stability of software components",
-      "Worked closely with stakeholders to gather requirements and translate them into actionable software solutions, ensuring alignment with business objectives",
+      "Developed a SaaS car insurance website with dash cam integration using TypeScript, React, HTML, and CSS, tailored to meet the needs of businesses managing fleets of 10 or more company cars",
+      "Implemented a feature displaying evaluated data of drivers' skills, enabling easy access and analysis of driver performance using Java, Spring boot and PostgreSQL",
+      "Led teams to achieve a code coverage rate exceeding 90% through JUnit unit testing, conducted comprehensive functional testing, and performed rigorous integration testing",
+      "Elicited client requirements and transformed them into actionable software solutions, ensuring alignment with business objectives",
     ],
   },
   {
@@ -63,10 +63,8 @@ export const career = [
     company: "Kawasaki City Hall",
     location: "Japan",
     results: [
-      "Created queries using MySQL to determine if parents can leave their children in a licensed daycare",
-      "Maintained a web-based application for a daycare support system using windows batch, Oracle, JavaScript, HTML and CSS",
-      "Managed access rights to folders due to organizational changes and personnel changes using the Active Directory child care support system",
-      "Created a batch coding solution with VBA that automatically generates SQL queries based on input from an Excel spreadsheet",
+      "Managed and maintained a web-based daycare support system serving a city with a population of 1.5M, employing Windows Batch scripting, Oracle, JavaScript, HTML, and CSS for system functionality and user experience enhancements",
+      "Designed and created an automated SQL query batch, primarily generating test data using VBA, resulting in a 40% reduction in man-hours",
     ],
   },
   {
@@ -75,23 +73,22 @@ export const career = [
     company: "Japan Post",
     location: "Japan",
     results: [
-      "Restored Windows desktops to the company's default settings and prepared them for reuse, ensuring adherence to company standards",
-      "Served as a reliable resource for colleagues, offering technical support and guidance for various software-related inquiries",
-      "Applied software and firmware patches to the track system, addressing security vulnerabilities and enhancing system performance",
-      "Maintained a web-based application for a post tracking system for using MySQL, JavaScript, HTML and CSS",
+      "Maintained a web-based post tracking application serving approximately 24,000 post offices, utilizing MySQL, JavaScript, HTML, and CSS",
     ],
   },
 ];
 
 export const experienced = [
   "Java",
-  "Spring boot",
+  "Spring Boot",
+  "TypeScript",
   "JavaScript",
-  "jQuery",
+  "Junit",
+  "React",
   "HTML5",
   "CSS3",
-  "MySQL",
   "PostgreSQL",
+  "MySQL",
   "Oracle",
   "AWS",
   "Docker",
@@ -101,14 +98,11 @@ export const experienced = [
 ];
 
 export const developing = [
-  "TypeScript",
-  "React",
-  "Redux",
   "Node.js",
+  "Next.js",
   "Express",
   "Tailwinds",
   "MUI",
-  "Junit",
   "Cypress",
   "Supabase",
   "MongoDB",
